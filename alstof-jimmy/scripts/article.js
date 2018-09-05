@@ -10,7 +10,7 @@ let articles = [];
 // which contain key-value pairs to create an object.
 
 function Article(rawDataObj) {
-  // TODO: Use the JS object that is passed in to complete this constructor function:
+  // DONE: Use the JS object that is passed in to complete this constructor function:
   // Save ALL the properties of `rawDataObj` into `this`
   this.title = rawDataObj.title;
   this.category = rawDataObj.category;
@@ -22,10 +22,16 @@ function Article(rawDataObj) {
 
 Article.prototype.toHtml = function() {
   // COMMENT: What is the benefit of cloning the article? (see the jQuery docs)
-  // PUT YOUR RESPONSE HERE
+  //
+  // We utilize the template DOM element with all its inner setups created
+  // once to add every new article to the DOM, so 1. we don't need to
+  // repeat ourselves and setup article structure in JS and 2. we can visually
+  // design and change the template before rolling out our changes to
+  // all articles.
 
   let $newArticle = $('article.template').clone();
-  /* TODO: This cloned article still has a class of template. In our modules.css stylesheet, we should give all elements with a class of template a display of none so that our template does not display in the browser. But, we also need to make sure we're not accidentally hiding our cloned article. */
+  /* DONE: This cloned article still has a class of template. In our modules.css stylesheet, we should give all elements with a class of template a display of none so that our template does not display in the browser. But, we also need to make sure we're not accidentally hiding our cloned article. */
+  $('article.template').hide();
 
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.attr('data-category', this.category);
