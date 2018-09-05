@@ -31,6 +31,7 @@ Article.prototype.toHtml = function() {
 
   let $newArticle = $('article.template').clone();
   /* DONE: This cloned article still has a class of template. In our modules.css stylesheet, we should give all elements with a class of template a display of none so that our template does not display in the browser. But, we also need to make sure we're not accidentally hiding our cloned article. */
+  $newArticle.removeClass('template').show();
   $('article.template').hide();
 
   if (!this.publishedOn) $newArticle.addClass('draft');
@@ -43,6 +44,13 @@ Article.prototype.toHtml = function() {
       3. article title,
       4. article body, and
       5. publication date. */
+  //
+  $newArticle.find('h1').text(this.title);
+  $newArticle.find('address a').text(this.author);
+  $newArticle.find('address a').attr('href', this.authorUrl);
+  $newArticle.find('address time').attr('datetime', this.publishedOn);
+  $newArticle.find('address time').text(this.publishedOn);
+  $newArticle.find('.article-body').html(this.body);
 
   // REVIEW: Display the date as a relative number of 'days ago'
   $newArticle
