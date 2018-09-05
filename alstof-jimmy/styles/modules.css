@@ -7,6 +7,14 @@ img {
   width: 100%;
 }
 
+address, time {
+  display: inline;
+}
+
+address {
+  font-style: italic;
+}
+
 .hamburger__input:checked ~ nav {
   height: initial;
 }
@@ -51,5 +59,24 @@ img {
   .hamburger__label {
     display: none;
     font-size: 0;
+  }
+
+  nav {
+    height: initial;
+  }
+
+  nav ul {
+    visibility: initial;
+    display: flex;
+    width: 50%;
+  }
+
+  nav ul li {
+    align-items: flex-start;
+    flex-direction: row;
+    display: flex;
+    height: 50px;
+    justify-content: center;
+    width: 100%;
   }
 }
