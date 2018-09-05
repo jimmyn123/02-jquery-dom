@@ -1,0 +1,55 @@
+nav ul {
+  visibility: hidden;
+}
+
+img {
+  min-width: 300px;
+  width: 100%;
+}
+
+.hamburger__input:checked ~ nav {
+  height: initial;
+}
+
+.hamburger__input:checked ~ nav ul {
+  visibility: visible;
+}
+
+.hamburger__input:checked ~ nav ul li {
+  align-items: flex-start;
+  flex-direction: column;
+  display: flex;
+  height: 50px;
+  justify-content: center;
+  width: 100%;
+}
+
+.hamburger__input {
+  left: -999rem;
+  position: absolute;
+}
+
+.hamburger__label {
+  position: fixed;
+  cursor: pointer;
+  right: 0;
+  top: 1rem;
+  z-index: 1;
+  margin-right: 5vw;
+  font-size: 2em;
+}
+
+.hamburger__label:before {
+  content: "\e902";
+}
+
+.hamburger__input:checked + .hamburger__label:before {
+  content: "\e90d";
+}
+
+@media screen and (min-width: 40em) {
+  .hamburger__label {
+    display: none;
+    font-size: 0;
+  }
+}
